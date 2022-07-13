@@ -7,8 +7,11 @@
 
         <script>
             $(document).ready(function(){
-               $("#hide_div1_button").click(function(){$("#div1").hide();}); 
-               $("#hide_div1_button").click(function(){$("#div1").show();}); 
+               $("#slideUp_button").click(function(){$("#div1_p1").slideUp();}); 
+               $("#slideDown_button").click(function(){$("#div1_p1").slideDown();}); 
+
+               $("#hide_div1_button").click(function(){$("#div1").hide(); }); 
+               $("#show_div1_button").click(function(){$("#div1").show(); }); 
 
                $("#hide_fade_button").click(function(){$("p").fadeOut("slow");}); 
                $("#show_fade_button").click(function(){$("p").fadeIn();}); 
@@ -29,6 +32,9 @@
             this is anothier paragraph
         </p>
     </div>
+
+
+        <button id="slideUp_button">slideUp</button>
 
         <button id="hide_div1_button">Hide</button>
         <button id="show_div1_button">show</button>
