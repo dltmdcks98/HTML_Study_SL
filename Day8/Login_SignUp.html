@@ -6,8 +6,28 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
             $(document).ready(function(){
+                var data = "ok";
+                if(data =="ok"){alert("!");}
+                else{alert("no"); }
+
+                //태그를 기반으로 val()내용 삽입
+                $("#Display_Button").click(function(){
+                    
+                    document.getElementById("Output").innerHTML="abcde";
+
+                });
+
+
                $("#slideUp_button").click(function(){$("#div1").slideUp();}); 
-               $("#slideDown_button").click(function(){$("#div1").slideDown();}); 
+               $("#slideDown_button").click(function(){$("#div1").slideDown();});
+               
+               $("#ChangeCSS").click(function(){$("#div1_p1").css('color','red');});
+            // -------get data---------
+             //알림창
+             $("#getdata_button").click(function(){alert($("#user_id").val());});
+             $("#setdata_button").click(function(){$("#user_id").val("administrator");});   
+            //-------------------------
+               
             });
     </script>
 </head>
@@ -15,6 +35,12 @@
     <h2>
         회원 관리 메뉴 구성 
     </h2>
+    <form action="sample.jsp" method="post">
+        <input type="text" id="user_id">
+        <input type="submit" id="send_data">
+    </form>
+    <p id="Output">asdf</p>
+
     <div id="div1">
         <p id = "div1_p1">회원 가입</p>
         <p id = "div1_p2" style="display: none;">로그인</p>
@@ -23,6 +49,16 @@
 <hr>
     <button id="slideUp_button">slideUp</button>
     <button id="slideDown_button">slideDown</button>
+
+<hr>
+
+    <button id="ChangeCSS">ChangeCSS</button>
+
+    <button id="getdata_button">getdata_button</button>
+    <button id="setdata_button">getdata_button</button>
+
+    <button id ="Display_Button">Display_Button</button> 
+
     <hr>
 </body>
 </html>
