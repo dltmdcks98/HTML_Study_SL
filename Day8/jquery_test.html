@@ -7,8 +7,8 @@
 
         <script>
             $(document).ready(function(){
-               $("#hide_button").click(function(){$("p").hide();}); 
-               $("#hide_button").click(function(){$("p").show();}); 
+               $("#hide_div1_button").click(function(){$("#div1").hide();}); 
+               $("#hide_div1_button").click(function(){$("#div1").show();}); 
 
                $("#hide_fade_button").click(function(){$("p").fadeOut("slow");}); 
                $("#show_fade_button").click(function(){$("p").fadeIn();}); 
@@ -20,15 +20,18 @@
         <h2>
             This is a heading
         </h2>
-        <p>
-            this is anothier paragraph
-        </p>
-        <p>
-            this is anothier paragraph
-        </p>
 
-        <button id="hide_button">Hide</button>
-        <button id="show_button">show</button>
+    <div id="div1">
+         <p id="div1_p1">
+            this is anothier paragraph
+        </p>
+        <p>
+            this is anothier paragraph
+        </p>
+    </div>
+
+        <button id="hide_div1_button">Hide</button>
+        <button id="show_div1_button">show</button>
         
         <hr size="1">
 
