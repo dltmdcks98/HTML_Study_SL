@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>포지션을 이용한 물체조종t</title>
+	<style>
+		body{
+			margin : 0px;
+		}
+		#bt_up{
+			position : absolute;
+			left : 100px;
+			top : 0px;
+		}
+		#bt_left{
+			position : absolute;
+			left : 50px;
+			top : 50px;
+		}
+		#bt_down{
+			position : absolute;
+			left : 100px;
+			top : 50px;	
+		}
+		#bt_right{
+			position : absolute;
+			left : 150px;
+			top : 50px;
+		}
+		#pic{
+			position : absolute;
+			width : 60px;
+			left : 50px;
+			top : 200px;
+		}
+		#bg{
+			background-image : url(../images/background.jpg);
+			width : 1000px;
+			height : 800px;
+		}
+	</style>
+	<script>
+	//이미지 초기 위치 
+	var y = 200;
+	var x =50;
+	var bgX=0;//배경의 x좌표 초기값
+	var r =3;
+	function moveUp(){
+		y= y-10;//y값을 올리려면 음수를 줘야한다.
+//		document.getElementById("pic").style.top=y+"px";
+		moveY()
+		}
+
+	function moveRight(){
+		//문서 내의 pic 요소의 style의 position중 left값을 증가 
+		x = x+10;
+//		document.getElementById("pic").style.left=x+"px";
+		moveX();
+		}
+	function moveLeft(){
+		//문서 내의 pic 요소의 style의 postion중 left값을 감소 
+		x = x-10;
+//		document.getElementById("pic").style.left=x+"px";
+		moveX();
+	}
+	function moveDown(){
+		y= y+10;
+//		document.getElementById("pic").style.top=y+"px";		
+		moveY()
+	}	
+
+	function moveX(){
+		document.getElementById("pic").style.left=x+"px";
+	}
+
+	function moveY(){
+		document.getElementById("pic").style.top=y+"px";
+	}
+	function moveBg(){
+		bgX = bgX-5;
+		r= r+1;
+		document.getElementById("bg").style.backgroundPosition=bgX+"px 0px";
+		document.getElementById("pic").style.transform="rotate("+r+"deg)";
+		setTimeout("moveBg()",10);
+	}
+	
+	</script>
+</head>
+<body>
+	<button id="bt_up" onClick="moveUp()" >Up</button>
+	<button id="bt_left" onClick="moveLeft()">Left</button>
+	<button id="bt_down" onClick="moveDown()">Down</button>
+	<button id="bt_right" onClick="moveRight()">Right</button>
+
+	<div id="bg">
+		<img src="../images/scv.jfif" id="pic">
+	</div>
+</body>
+</html>
+<script>
+moveBg();
+</script>
