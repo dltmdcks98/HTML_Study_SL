@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>레이아웃 실습1</title>
+
+<style>
+/*div는 block형이므로, 크기 조정이 가능 */
+	#green-area{
+		width : 300px;
+		height : 500px;
+		background : green;
+		float : left;/*뜨게 하는거*/
+		opacity:0.2;
+	}
+	#yellow-area{
+		width : 300px;
+		height : 500px;
+		background : yellow;
+		float : left;
+	}
+	#wrapper{
+		border :1px solid red;
+		float:left;/*area들이 떠있으므로 wrapper도 떠야함*/
+		position : relative;
+		left : 300px;
+	 }
+</style>
+
+</head>
+<body>
+	<div id ="wrapper">
+		<div id="green-area">
+			녹생영역
+		</div>
+		<div id="yellow-area">
+			노랑영역
+		</div>
+	</div>
+</body>
+</html>
