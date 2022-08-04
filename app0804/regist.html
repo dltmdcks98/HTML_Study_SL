@@ -16,6 +16,7 @@ var hobbyCount=0;//취미를 체크할 때 카운트를 누적시킬 전역변�
 //서버에 큰 부담을 줌으로 서버에 넣기 전에 클라이언트 측에서 미리 검증을 거치는게 좋다.
 function checkValid(){
 	//아이디 검증
+	/*
 	var user_id =	document.getElementById("user_id").value;
 	console.log("사용자가 입력한 id값은",user_id);
 
@@ -56,10 +57,25 @@ function checkValid(){
 		return;
 	}
 	
-//주민번호
-	
+
+	//취미를 적어도 하나라도 체크했는지 여부 확인 
+	var hobbyArray = document.getElementsByName("hobby");
+	hobbyCount=0;//가입하기 버튼을 누를 때 마다 체크용 변수를 초기화 
+	for(var i =0; i<hobby.length;i++){
+		if(hobbyArray[i].checked){
+		hobbyCount++;
+		}
+		if(hobbyCount==0){
+			alert("하나 이상의 취미를 선택");
+			return;
+		}
+	}
+	*/
 	//조건문을 만나지 않은 경우
-	location.href="https://naver.com";
+	//폼양식으로 감싼 요소들을 우리의 톰켓 서버로 전송
+ 	var memberForm = document.getElementById("memberForm");
+	memberForm.action = "http://127.0.0.1:9999/member/regist.jsp";//톰켓의 회원가입 처리 jsp명시
+	memberForm.submit();//이 시점에 서버로 전송
 
 }
 
@@ -101,31 +117,33 @@ function init(){
 </script>
 </head>
 <body onLoad="init()">
+<!--jsp로 전송할때 html의 데이터를 변수로 저장해서 전달하는데 이때 name태그를 사용한다. -->
+<form id="memberForm">
 	<table width="800px" border="1px" align="center">
 		<tr>
 			<td align ="center" colspan="2">회원가입</td>
 		</tr>
 		<tr>
 			<td>ID</td>
-			<td><input type ="text" id="user_id"></td>
+			<td><input type ="text" id="user_id" name="user_id"></td>
 		</tr>
 		<tr><!--비밀번호 글자수 입력 제한-->
 			<td>PassWord</td>
-			<td><input type ="password" maxlength="12" id="pass"> *8자 이상 12자 이하</td>
+			<td><input type ="password" maxlength="12" id="pass" name="pass"> *8자 이상 12자 이하</td>
 		</tr>
 		<tr>
 			<td>비밀번호 확인</td>
-			<td><input type ="password" maxlength="12" id="pass2"></td>
+			<td><input type ="password" maxlength="12" id="pass2" name="pass2"></td>
 		</tr>
 		<tr>
 			<td>이름</td>
-			<td><input type ="text" id ="user_name" ></td>
+			<td><input type ="text" id ="user_name" name="user_name"></td>
 		</tr>
 		<tr>
 			<td>이메일</td>
 			<td>
-				<input type ="text" id="mail_id">@
-				<input type = "text" id="myserver" style="display:none">
+				<input type ="text" id="mail_id" name="mail_id">@
+				<input type = "text" id="myserver" name="myserver" style="display:none">
 				<select id="mail_server" onChange="showDirect()">
 					<option value="0">메일 서버 선택</option>
 					<option value="gmail.com">gmail.com</option>
@@ -138,23 +156,23 @@ function init(){
 		<tr>
 			<td>연락처</td>
 			<td>
-				<select>
-					<option>010</option>
-					<option>016</option>
-					<option>017</option>
-					<option>018</option>
-					<option>019</option>
+				<select name="tel1">
+					<option value="010">010</option>
+					<option value="016">016</option>
+					<option value="017">017</option>
+					<option value="018">018</option>
+					<option value="019">019</option>
 				</select>
 				-
-				<input type ="text">-
-				<input type ="text">
+				<input type ="text" name="tel2">-
+				<input type ="text" name="tel3">
 			</td>
 		</tr>
 		<tr>
 			<td>주민번호</td>
 				<td>
-				<input type ="text" maxlength="6">-
-				<input type ="text" maxlength="7" id="social2">
+				<input type ="text" maxlength="6" name="social1">-
+				<input type ="text" maxlength="7" id="social2" name="social2">
 			</td>
 		</tr>
 		<tr>
@@ -178,11 +196,12 @@ function init(){
 		</tr>
 		<tr>
 			<td align ="center" colspan="2">
-				<button id="bt_regist">회원가입하기</button>
-				<button id="bt_reset">다시작성</button>
+				<input type="button" id="bt_regist" value ="회원가입하기">
+				<input type="button" id="bt_reset" value="다시작성">
 		
 			</td>
 		</tr>
 	</table>
+	</form<
 </body>
 </html>
