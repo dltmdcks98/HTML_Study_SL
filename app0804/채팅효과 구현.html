@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>채팅효과 구현</title>
+<style>
+	#chat1{
+		width:300px;
+		height:400px;
+		background:skyblue;
+		display : inline-block;/*inline의 특징을 가지면서  크기 지정을 할 수 있음 */
+	}
+	#chat2{
+		position : absolute;
+		width:300px;
+		height:400px;
+		background:orange;
+		display : inline-block;
+
+	}
+	textarea{
+		width:96%; /*바깥쪽 부모 요소까지 너비 확보*/
+		height:365px;
+		background:yellow;
+	}
+</style>
+<script>
+	//사용자의 키보드 이벤트를 감지하다가 오직 엔터키를 누를 때만 처리
+	function enterKey(){
+		if(event.keyCode==13){
+			alert("엔터");
+		}
+	}
+	//문서가 로드 된 후에 js에서 태그요소들을 접근하기 위함
+	function init(){
+			document.getElementById("txt2").addEventListener("keyup",function(e){
+				console.log(e.keyCode);
+				if(e.keyCode==13){
+					alert("엔터");
+				}
+			});//keyup이 발생하면 익명함수 호출
+	}
+
+
+
+</script>
+</head>
+<body onLoad="init()">
+<!-- 
+모든  html요소는 크게 block 형과 inline형이 있다. 
+block 형은 자신이 위치하는 수평공간에 그 누구도 공존을 허용하지 않는다. 장점 : 크기 지정 가능  EX)div,p		
+inline block 반대  단점 : 크기 지정, 자신의 컨텐츠 만큼만 공간을 확보 X EX)span
+-->
+<!-- 죄측 채팅창  -->
+
+	<div id="chat1">
+		<textarea readonly>
+			
+		</textarea>
+		<input type="text" onKeyUp="enterKey()">
+		<button>전송</button>
+	</div>
+	<!-- 좌측 끝 -->
+
+	<!-- 우측 시작 -->
+	<div id="chat2">
+		<textarea readonly>
+			
+		</textarea>
+		<input type="text"  id="txt2">
+		<button>전송</button>
+	</div>
+<!-- 	우측 끝 -->
+</body>
+</html>

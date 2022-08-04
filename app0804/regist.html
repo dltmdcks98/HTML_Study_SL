@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+<style>
+	input{
+		background:#e5e5e5;
+		border:1px solid gray;
+	}
+
+</style>
+<script>
+var hobbyCount=0;//취미를 체크할 때 카운트를 누적시킬 전역변수, 이 변수값이 0인 영우 에러출력
+//유효성 체크함수 정의 : db에 직접 넣으면, 너무 많은 사용자의 검증되지 않은 데이터가 들어갈 수 있고
+//서버에 큰 부담을 줌으로 서버에 넣기 전에 클라이언트 측에서 미리 검증을 거치는게 좋다.
+function checkValid(){
+	//아이디 검증
+	var user_id =	document.getElementById("user_id").value;
+	console.log("사용자가 입력한 id값은",user_id);
+
+	if(user_id==""){//값이 없는거랑 null값이랑 다름
+
+		alert("아이디를 입력하세요");
+		user_id.focus();
+		return;//실행부로 하여금 함수를 호출한 곳으로 복귀=>다시 돌아가는 것 다음 코드로 안감 함수를 빠져나감
+	}
+
+	//비밀번호 
+	var pass = document.getElementById("pass");
+	if(pass.value<8){
+		alert("비밀번호 입력");
+		pass.focus();
+		return;
+	}
+	var pass2 = document.getElementById("pass2");
+	if(pass.value != pass2.value){
+		alert("비밀번호 확인 다시 입력");
+		pass2.focus();
+		return;
+	}
+
+	//이름
+	var user_name = document.getElementById("user_name");
+	if(user_name.value==""){
+			alert("이름을 입력");
+			user_name.focus();
+			return;
+		}
+
+	//이메일
+	var mail_id = document.getElementById("mail_id");
+	if(mail_id.value==""){
+		alert("메일 아이디 입력");
+		mail_id.focus();
+		return;
+	}
+	
+//주민번호
+	
+	//조건문을 만나지 않은 경우
+	location.href="https://naver.com";
+
+}
+
+//사용자가 직접 이메일을 입력할 수 있는 텍스트박스 보이게
+function showDirect(){
+	if(document.getElementById("mail_server").value=="direct"){
+		document.getElementById("myserver").style.display="block";
+	}else {
+		document.getElementById("myserver").style.display="none";
+	}
+}
+
+function init(){
+	//이 함수는 문서의 태그가 모두 load되었을때 호출
+	//js의 이벤트는 click, mouse 뿐 아니라 문서가 로드 되는 것도 하나의 이벤트 이다.
+	var bt_regist = document.getElementById("bt_regist");
+	console.log(bt_regist);
+		
+	//태그에 직접 이벤트를 부여하는 방식이 아닌, 순수한 자바스크립트를 이용한 이벤트 연결방식
+	bt_regist.addEventListener("click",function(){
+		console.log("나 눌렀어");
+		checkValid();
+	});//버튼과 리스너 연결
+
+	//주민번호 뒷자리에 첫자리 값을 입력완료 시점에 성별을 판단하여 라디오 값을 체크
+	var social2 = document.getElementById("social2");
+	social2.addEventListener("keyup",function(e){//e= 이벤트 객체
+			console.log("성별 값은",this.value);//social2의 값
+			
+			var gender = document.getElementsByName("gender");
+			if(social2.value=='1'){
+				gender[0].checked=true;
+			}else if(social2.value=='2'){
+				gender[1].checked=true;
+			}
+		});
+}
+	
+</script>
+</head>
+<body onLoad="init()">
+	<table width="800px" border="1px" align="center">
+		<tr>
+			<td align ="center" colspan="2">회원가입</td>
+		</tr>
+		<tr>
+			<td>ID</td>
+			<td><input type ="text" id="user_id"></td>
+		</tr>
+		<tr><!--비밀번호 글자수 입력 제한-->
+			<td>PassWord</td>
+			<td><input type ="password" maxlength="12" id="pass"> *8자 이상 12자 이하</td>
+		</tr>
+		<tr>
+			<td>비밀번호 확인</td>
+			<td><input type ="password" maxlength="12" id="pass2"></td>
+		</tr>
+		<tr>
+			<td>이름</td>
+			<td><input type ="text" id ="user_name" ></td>
+		</tr>
+		<tr>
+			<td>이메일</td>
+			<td>
+				<input type ="text" id="mail_id">@
+				<input type = "text" id="myserver" style="display:none">
+				<select id="mail_server" onChange="showDirect()">
+					<option value="0">메일 서버 선택</option>
+					<option value="gmail.com">gmail.com</option>
+					<option value="naver.com">naver.com</option>
+					<option value="daum.net">daum.net</option>
+					<option value="direct">직접입력</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>연락처</td>
+			<td>
+				<select>
+					<option>010</option>
+					<option>016</option>
+					<option>017</option>
+					<option>018</option>
+					<option>019</option>
+				</select>
+				-
+				<input type ="text">-
+				<input type ="text">
+			</td>
+		</tr>
+		<tr>
+			<td>주민번호</td>
+				<td>
+				<input type ="text" maxlength="6">-
+				<input type ="text" maxlength="7" id="social2">
+			</td>
+		</tr>
+		<tr>
+			<td>성별</td>
+				<td>
+				<!--id 와 name의 공통점 , 차이점
+					id 유일한 요소를 지정할 때
+					name : 중복이 가능한 요소를 지정할 때, 이때 중복될 경우 내부적으로 돔을 배열에 넣음 -->
+				남<input type ="radio" name="gender"><!--배열명 gender-->
+				여<input type ="radio" name="gender">
+			</td>
+		</tr>
+		<tr>
+			<td>취미</td>
+				<td>
+				운동<input type ="checkbox" name="hobby">
+				게임<input type ="checkbox" name="hobby">
+				독서<input type ="checkbox" name="hobby">
+				영화<input type ="checkbox" name="hobby">
+			</td>
+		</tr>
+		<tr>
+			<td align ="center" colspan="2">
+				<button id="bt_regist">회원가입하기</button>
+				<button id="bt_reset">다시작성</button>
+		
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
