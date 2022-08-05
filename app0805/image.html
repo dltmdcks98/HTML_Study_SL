@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>이미지동적생성</title>
+<script src="./photo.js"></script><!--자바에서 import-->
+<script>
+	var imgArray=["among.jfif","beerr.png","bob.png","duck.jfif","friend.jfif","joker.jfif","kid.jfif","monster.jfif","mude.png","scv.jfif"];
+	var index=0;
+	function createImage(){
+		if(index>=imgArray.length-1){
+			alert("이미지 없");
+			return;
+		}
+		//버튼 누를때 마다 하나씩 화면에 동적으로 생성 
+		var img = document.createElement("img");//동적으로 img요소를 DOM으로 생성 
+		img.src="../images/"+imgArray[index++];
+		img.style.width=100+"px";
+		img.style.height=100+"px";
+		//문서 body영역에 부착하기 
+		document.body.appendChild(img);
+
+	}
+
+	//html문서에서 이벤트 연결을 하지 않고, 순수 자바 스크립트에서 하는 방법
+	//효과는 동일함 
+	window.addEventListener("load",function(){
+		var bt = document.querySelector("button");
+
+		//버튼에 이벤트 연결
+		bt.addEventListener("click",function(){
+			createImage();
+		});
+	});
+
+
+</script>
+</head>
+<body>
+	<button>이미지생성</button>
+</body>
+</html>
