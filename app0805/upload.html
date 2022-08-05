@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>이미지등록홈</title>
+<script>
+//유효성 체크
+function checkValid(){
+	var title =document.querySelector("input[name='title']");
+	var spot =document.querySelector("input[name='spot']");
+	var detail =document.querySelector("textarea[name='detail']");
+	var myfile =document.querySelector("input[name='myfile']");
+
+	if(title.value.length<1){
+		alert("제목을 입력하세요");
+		title.focus();
+	}else if(spot.value.length<1){
+		alert("장소를 입력하세요");
+		spot.focus();
+	}else if(detail.value.length<1){
+		alert("설명을 입력하세요");
+		detail.focus();
+	}else if(myfile.value.length<1) {
+		alert("파일을 선택하세요");
+	}else{
+		//등록
+		var frm = document.querySelector("form");
+		frm.action="http://127.0.0.1:9999/save.jsp";//업로드 요청을 받을 주소
+		frm.method="post"//파일때문에 용량이 크므로 POST방식으로 전송해야한다.
+		frm.submit();//서버에 전송하는 시점
+		alert("등록완료");
+	}
+}
+
+	window.addEventListener("load",function(){
+		var bt= document.querySelector("#bt");
+		bt.addEventListener("click",function(){
+			checkValid();
+		});
+	});
+</script>
+<style>
+/*selector*/
+	textarea{
+		width : 99%;
+		height : 200px;
+	}
+</style>
+</head>
+<body>
+	<form>
+		<table width="600px" border="1px" align="center">
+			<tr>
+				<td align="center" colspan="2" name="">관광지등록</td>
+			</tr>
+			<tr>
+				<td>	사진제목</td>
+				<td><input type="text" name="title"></td>
+			</tr>
+			<tr>
+				<td>	장소</td>
+				<td><input type="text" name="spot"></td>
+			</tr>
+			<tr>
+				<td>	설명</td>
+				<td><textarea name="detail"></textarea></td>
+			</tr>
+			<tr>
+				<td>	사진</td>
+				<td><input type="file" name="myfile"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="button" value="등록" id="bt"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
