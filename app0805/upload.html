@@ -48,7 +48,8 @@ function checkValid(){
 </style>
 </head>
 <body>
-	<form>
+<!--서버에 폼양식을 전송시 만일 텍스트 뿐만 아니라 바이너리 파일이 포함된 경우 반드시 아래의 속성이 명시되어야 한다.-->
+	<form enctype="multipart/form-data">
 		<table width="600px" border="1px" align="center">
 			<tr>
 				<td align="center" colspan="2" name="">관광지등록</td>
