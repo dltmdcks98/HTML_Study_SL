@@ -9,10 +9,12 @@
         var contentArea;
         var thumbArea;
         var movieImg;//좌측에 보여즐 영화포스터
+        var box;
         //사진을 동적으로 생성하여, 좌측 div에 보여주기
         function showImg(obj, path){//이미지 DOM을 매개변수로 받아, 사진 교체
             obj.src=path;
         }
+
         // 내용 넣기
         function showContent(title,year,budget,gross){
             //contentArea.innerText="dksdusd<br>asd";//이렇게하면 그냥 <br>텍스트 자체로 인식
@@ -22,12 +24,27 @@
             tag = tag+"총 수익 : "+gross+"<br>";
             contentArea.innerHTML=tag;
         }
+        // 10개의 썸네일 이미지를 출력(이미지 1개당 65+5(여백용))
+        function showThumbList(){
+            for(var i=0; i<movies.marvel.length;i++){
+                var img = document.createElement("img");    
+                img.src=movies.marvel[i].url
+                img.style.width=65+"px";
+                img.style.margin=5+"px"
+
+                box.appendChild(img);
+            }
+           
+
+        }
+
         //문서가 로드되면
         //window. 원래 같이 써야하는데 생략이 가능함
         addEventListener("load",function(){
             photoArea = document.getElementById("photo-area");
             contentArea = document.getElementById("content-area");
             thumbArea = document.getElementById("thumb-area");
+            box = document.getElementById("box");
 
             movieImg = document.createElement("img");//img돔 생성
             movieImg.style.width=400+"px";
@@ -36,7 +53,9 @@
 
             showImg(movieImg,movies.marvel[0].url);//(이미지돔, 경로)
             
-            showContent(movies.marvel[0].title,movies.marvel[0].year,movies.marvel[0].budget,movies.marvel[0].gross);
+            showContent(movies.marvel[0].title,movies.marvel[0].release_year,movies.marvel[0].budget,movies.marvel[0].gross);
+
+            showThumbList();
         });
     </script>
     <style>
@@ -69,13 +88,40 @@
             background: gray;
             float: left;
         }
+        #bt_prev{
+            float:left;
+            width: 50px;
+            height: 100px;
+        }
+        #bt_next{
+            float:right;
+            width: 50px;
+            height: 100px;
+        }
+        #box{
+            float:left;
+            width: 700px;
+            height: 100px;
+            background: orange;
+            position: relative;
+            left: -500px;
+        }
+        /* 20개의 이미지를 다 보여줄 수 없기 때문에 10개를 넘어가는 영역을 가리기 위한 div */
+        
     </style>
 </head>
 <body>
     <div id="warrper">
         <div id="photo-area"></div>
         <div id="content-area"></div>
-        <div id="thumb-area"></div>
+        <div id="thumb-area">
+            <button id="bt_prev">이전 </button>
+            <!-- 썸네일  출력 -->
+            <div id="mask">
+                <div id="box"></div>
+            </div>
+            <button id="bt_next">다음</button>
+        </div>
 
     </div>
 </body>
