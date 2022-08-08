@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>마블영화정보</title>
+    <script src ="./data.js"></script>
+    <script>
+        var warrper;
+        var photoArea;
+        var contentArea;
+        var thumbArea;
+        var movieImg;//좌측에 보여즐 영화포스터
+        //사진을 동적으로 생성하여, 좌측 div에 보여주기
+        function showImg(obj, path){//이미지 DOM을 매개변수로 받아, 사진 교체
+            obj.src=path;
+        }
+        //문서가 로드되면
+        //window. 원래 같이 써야하는데 생략이 가능함
+        addEventListener("load",function(){
+            photoArea = document.getElementById("photo-area");
+            contentArea = document.getElementById("content-area");
+            thumbArea = document.getElementById("thumb-area");
+
+            movieImg = document.createElement("img");//img돔 생성
+            movieImg.style.width=400+"px";
+            movieImg.style.height=600+"px";
+            photoArea.appendChild(movieImg);
+
+            showImg(movieImg,movies.marvel[0].url);//(이미지돔, 경로)
+
+        });
+    </script>
+    <style>
+        /* 선택자 중엔 class도 있는데 class의 주 용도: 자주 사용되는 즉 재사용 가능한 스타일에 적용 */
+        #warrper{
+            width:800px;
+            height: 700px;
+            background : yellow;
+            margin: auto;
+            overflow: hidden;
+            /*자식이 float될때 부모의 영역에 반드시 이 표시 */
+        }
+        #photo-area{
+            width: 400px;
+            height: 600px;
+            background: green;
+            float: left;
+            
+        }
+        #content-area{
+            width: 400px;
+            height: 600px;
+            background: green;
+            float: left;
+        }
+        #thumb-area{
+            width: 100%;
+            height: 100px;
+            background: gray;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="warrper">
+        <div id="photo-area">사진 나올 곳</div>
+        <div id="content-area">내용 나올 곳</div>
+        <div id="thumb-area">썸네일</div>
+
+    </div>
+</body>
+</html>
