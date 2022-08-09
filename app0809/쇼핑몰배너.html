@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>쇼핑몰 배너</title>
     <style>
-        #mask{
+        #mask {
             width: 500px;
             height: 120px;
             background: yellow;
             margin: auto;
-            position: relative;/*자식 때문에 자식의 postion이 명시되면 부모도 명시되어야한다.*/
+            position: relative;
+            /*자식 때문에 자식의 postion이 명시되면 부모도 명시되어야한다.*/
             overflow: hidden;
             border: 1px solid red;
         }
@@ -18,28 +20,43 @@
     <script src="./data.js"></script>
     <script>
         //비어있는 배열 생성
-        var productArray=[];//new Array()
+        var productArray = [];//new Array()
+        //전역변수를 다른 js에서 사용할수 있는 이유는 Product.js 를 src로 넣었을때 그 코드가 전부 다 들어온다고 보는 거
+        var flag =true;
 
-        function init(){
-            //이미지 7개를 생성하여 컨텐츠를 구성
-            for(var i =0; i<7;i++){
-                var arr = movies.marvel;
-                var path =arr[i].url;
-                var width = 90;
-                var x = (width+5)*i;
-                productArray[i] = new Product(document.getElementById("mask"),path,width,90,x,5);
+        //브라우저가 떠있는 동안, 즉 프로그램이 가동되고 있는 동안 무한 루프로 객체의 move()함수를 호출
+        function auto() {
+            if (flag) {
+                for (var i = 0; i < 7; i++) {
+                    productArray[i].x = productArray[i].x-1;
+                    productArray[i].move();
+                }
             }
-            
+            setTimeout("auto()", 10);//1000분의 10초 뒤에 auto()호출           
+        }
+        function init() {
+            //이미지 7개를 생성하여 컨텐츠를 구성
+            for (var i = 0; i < 7; i++) {
+                var arr = movies.marvel;
+                var path = arr[i].url;
+                var width = 90;
+                var x = (width + 5) * i;
+                productArray[i] = new Product(document.getElementById("mask"), path, width, 90, x, 5);
+            }
+
         }
 
-        addEventListener("load",function(){
+        addEventListener("load", function () {
             init();
+            auto();
         });
     </script>
 </head>
+
 <body>
     <div id="mask">
 
     </div>
 </body>
+
 </html>
