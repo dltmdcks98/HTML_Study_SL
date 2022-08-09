@@ -87,6 +87,7 @@
             height: 100px;
             background: gray;
             float: left;
+            position: relative;
         }
         #bt_prev{
             float:left;
@@ -100,14 +101,23 @@
         }
         #box{
             float:left;
-            width: 700px;
+            /* width: 700px; */
             height: 100px;
             background: orange;
-            position: relative;
-            left: -500px;
+            /* 부모를 기준으로 절대위치 */
+            position: absolute;
+            left: 0px;
+            top:0px;
         }
         /* 20개의 이미지를 다 보여줄 수 없기 때문에 10개를 넘어가는 영역을 가리기 위한 div */
         
+        
+        /* 자식요소에서 position을 명시하면, 부모요소도 디폴트 포지션으로 방치하면 안되며 포지션을 명시해야한다. */
+         #mask{
+            position: absolute;
+            width: 700px;
+            margin-left: 50px;
+        }
     </style>
 </head>
 <body>

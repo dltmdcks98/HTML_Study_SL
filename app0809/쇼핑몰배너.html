@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>쇼핑몰 배너</title>
+    <style>
+        #mask{
+            width: 500px;
+            height: 120px;
+            background: yellow;
+            margin: auto;
+            position: relative;/*자식 때문에 자식의 postion이 명시되면 부모도 명시되어야한다.*/
+            overflow: hidden;
+            border: 1px solid red;
+        }
+    </style>
+    <script src="./Product.js"></script>
+    <script src="./data.js"></script>
+    <script>
+        //비어있는 배열 생성
+        var productArray=[];//new Array()
+
+        function init(){
+            //이미지 7개를 생성하여 컨텐츠를 구성
+            for(var i =0; i<7;i++){
+                var arr = movies.marvel;
+                var path =arr[i].url;
+                var width = 90;
+                var x = (width+5)*i;
+                productArray[i] = new Product(document.getElementById("mask"),path,width,90,x,5);
+            }
+            
+        }
+
+        addEventListener("load",function(){
+            init();
+        });
+    </script>
+</head>
+<body>
+    <div id="mask">
+
+    </div>
+</body>
+</html>
