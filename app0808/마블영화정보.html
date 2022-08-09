@@ -30,7 +30,10 @@
                 var img = document.createElement("img");    
                 img.src=movies.marvel[i].url
                 img.style.width=65+"px";
-                img.style.margin=5+"px"
+                //이미지 위치를 div를 넘어서기 위해 absolute로 
+                img.style.position="absolute";
+                img.style.left=(65+6)*i+"px";
+                img.style.top=5+"px";
 
                 box.appendChild(img);
             }
@@ -101,7 +104,7 @@
         }
         #box{
             float:left;
-            /* width: 700px; */
+            width: 700px;
             height: 100px;
             background: orange;
             /* 부모를 기준으로 절대위치 */
