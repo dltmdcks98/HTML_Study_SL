@@ -17,7 +17,15 @@
             } else if (input_password.value.length < 1) {
                 alert("비밀번호를 입력하세요");
                 input_password.focus();
-            } 
+            }
+
+            //제대로 입력을 마친 유저에게는, 서버로 폼양식을 전송 
+            $("form").attr({
+                // 파일로 찾음
+                "action" :"/member/login",
+                "method" : "post"
+            });
+            $("form").submit();
         }
         $(document).ready(function () {//onload..
             $("#test").animate({//{}는 json을 표현
@@ -28,6 +36,7 @@
                 checkValid();
             })
         });
+
 
     </script>
 
@@ -53,16 +62,23 @@
 </head>
 
 <body>
-    <div id="wrapper">
-        <div style="position:relative;left: -400px;" id="test">
-            <input type="text" placeholder="input your id" id="input_id">
+    <form>
+        <div id="wrapper">
+            <div style="position:relative;left: -400px;" id="test">
+                <input type="text" placeholder="input your id" id="input_id" name="">
+            </div>
+            <div>
+                <input type="password" placeholder="input your password" id="input_password">
+            </div>
+            <div style="text-align: center;">
+                <!-- html5의 버튼 요소는 내부적으로 자동으로 submit()처리가 되어있음 특히 form 태그로 감쌌을 때 개발자가 submit() 호출하지 않아도 자동 전송 
+                방지 방법 : JS에서 막는다 onSubmit="prevent-default"속성같은 것을 적용한다., button요소를 form태그에서 꺼낸다.-->
+                <!-- <button>로그인</button> -->
+            </div>
         </div>
-        <div>
-            <input type="password" placeholder="input your password" id="input_password">
-        </div>
-        <div style="text-align: center;">
-            <button>로그인</button>
-        </div>
+    </form>
+    <div style="text-align: center;">
+        <button>로그인</button>
     </div>
 </body>
 
