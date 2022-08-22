@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        //마커로 사용할 이미지명을 동적으로 얻어오기    
+        function getImg() {
+            var photo = document.getElementById("photo");
+            var arr=["1.webp","2.png","3.png","4.png","5.png"];
+            for (var i=0; i<5;i++) {
+                //없던 요소를 동적으로 만들때 
+                var op = document.createElement("option");
+                //생성된 옵션 요소를 select 요소에 자식으로 부착
+                op.text = arr[i];
+                op.value = arr[i];
+                photo.add(op);
+            }
+        }
+
+        function init() {
+            getImg();
+
+            //select 상자에 이벤트 구현 
+            document.getElementById("photo").addEventListener("change",function(){
+                console.log(this.value);
+                //문서내의 preview라는 이미지 돔의 src를 교체
+                document.getElementById("preview").src="./images/"+this.value;
+            });
+        }
+    </script>
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        #wrapper {
+            width: 100%;
+            height: 900px;
+            background-color: aqua;
+            overflow: hidden;
+        }
+
+        #input-area {
+            width: 15%;
+            height: 100%;
+            background-color: yellow;
+            float: left;
+
+        }
+
+        #input-area * {
+            width: 97%;
+        }
+
+        #preview {
+            height: 250px;
+        }
+
+        #map {
+            width: 85%;
+            height: 100%;
+            background-color: black;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="input-area">
+            <input type="text" placeholder="위도">
+            <input type="text" placeholder="겯도">
+            <input type="text" placeholder="제목">
+            <select id="photo">
+                <option value="0">마커를 선택하세요</option>
+            </select>
+            <img id="preview">
+            <textarea rows="20"></textarea>
+            <button>등록</button>
+        </div>
+        <div id="map"></div>
+    </div>
+
+</body>
+
+</html>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-ZrTVE4W9l0oYOCeCI5c92EqDuCb9Q9w&callback=init"></script>
