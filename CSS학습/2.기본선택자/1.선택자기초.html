@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* body와  *의 차이
+            *은 각 요소마다 적용 
+            body는 한 body요소 하나만 적용 */
+        body{
+            color: blue;
+            border: 4px solid red;
+        }
+
+        /* 클래스명으로 적용 */
+        .orang{
+            color: orange;
+        }
+
+        /* id 명으로 적용 */
+        #big{
+            font-size: 30px;
+        }
+
+        /* 먼저 작성을 해 놓고 나중에 선택해서 넣는다. */
+        .reverse{
+            display: block;
+            transform: rotate(180deg);
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+    <!-- div>ul>li*3 -->
+    <div>
+        <ul>
+            <li id="big">사과</li>
+            <li>포도</li>
+            <li class="orang">오렌지</li>
+        </ul>
+
+        <!-- div+p+span -->
+        <div>당근</div>
+        <p>토마토</p>
+        <span class="orang reverse">오렌지</span>
+    </div>
+
+</body>
+</html>
