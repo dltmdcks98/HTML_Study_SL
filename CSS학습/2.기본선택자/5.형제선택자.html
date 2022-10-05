@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* li에게 스타일을 적용할 건데 바로 위의 태그가 .orang인 경우만 적용 */
+        .orang + li{
+            background: orangered;
+        }
+        /* 형들 중에 class orang이 있으면 적용  */
+        .orang ~ li{
+            background: orangered;
+        }
+        li+.orang{
+            color: orange;
+        }
+        li + li{
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="orang">어렌쥐</li>
+        <li>사과</li>
+        <li>딸기</li>
+        <li class="orang">오렌지</li>
+        <li>자몽</li>
+        <li>포도</li>
+    </ul>
+</body>
+</html>
