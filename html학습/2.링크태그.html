@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #link{
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+            display: inline;
+        }
+
+    </style>
+</head>
+<body>
+    <a href="https://www.naver.com" target="_blank">네이버로이동</a>
+
+    <!-- 이렇게 해도 되지만 문법이 즉 용도가 다르다 -->
+    <div id="link">구글로 이동</div>
+
+    <script>
+        link.onclick =e=>{
+            location.href='https://www.google.com';
+        };
+
+    </script>
+</body>
+</html>
