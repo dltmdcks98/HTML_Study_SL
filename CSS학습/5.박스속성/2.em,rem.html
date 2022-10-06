@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* rem을 조절하기 위해 html의 사이즈를 조정해도 body의 size를 제어하면 전체 글자 크기가 바뀌는 것을 방지할 수 있다. */
+        html{
+            font-size: 10px;
+        }
+        body{
+            font-size: 14px;
+        }
+
+        div{
+            border: 2px solid gray;
+            box-sizing: border-box;
+        }
+        .root{
+            /* em : 자기 자신의 폰트사이즈 대비 - 50 x 20 = 1000px
+            폰트사이즈가 커지면 박스 사이즈도 같이 커짐  */
+            width: 50em;
+            font-size: 10px;
+        }
+        .parent{
+            /* rem : html 폰트사이즈 대비  */
+            width: 20rem;
+        }
+        .child{
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+        <!-- .root>.parent>.child*2 -->
+        <div class="root">Root
+            <div class="parent">Parent
+                <div class="child">Child1</div>
+                <div class="child">Child2</div>
+            </div>
+        </div>
+</body>
+</html>
