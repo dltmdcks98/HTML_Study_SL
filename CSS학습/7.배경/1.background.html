@@ -15,7 +15,11 @@
             /* img태그는 원본 그대로 올리기만 backgrond-image는 알아서 잘려서 나온다. */
             background-image: url('../img/sky.jpg');
             background-size: 150px 150px;
-            background-repeat: repeat-x;
+            background-repeat: no-repeat;
+            background-position: left 50px;
+
+            /* orange positon/size 순서로 하는데 positon/size는 필수 값 */
+            background: url('../img/sky.jpg') no-repeat orange left 150px / 150px 50px;
 
         }
     </style>
