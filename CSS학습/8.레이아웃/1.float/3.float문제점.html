@@ -12,6 +12,23 @@
             padding: 20px;
             border: 3px solid red;
             
+            /* overflow: hidden; */
+        }
+        .container2{
+            width: 700px;
+            margin: 20px;
+            padding: 20px;
+            border: 3px solid blue;
+            
+            /* overflow: hidden; */
+        }
+        .container3{
+            width: 700px;
+            margin: 20px;
+            padding: 20px;
+            border: 3px solid green;
+            
+            /* overflow: hidden; */
         }
         .box{
             width: 200px;
@@ -19,9 +36,13 @@
             border: 3px solid green;
             background: yellowgreen;
             border-radius: 20px;
+
             float: left;
-        }
-        .container::after{
+        }  
+
+        /* after를 해제하는 전용 클래스
+        컨테이너 하나하나 해제하는 것이 아니라  */
+        .clearfix::after{
             content: ' ';
             display: block;
             clear: both;
@@ -30,10 +51,24 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container clearfix">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <!-- <div class="cbox"></div> -->
+    </div>
+
+    <div class="container2 clearfix">
         <div class="box"></div>
         <div class="box"></div>
         <div class="box"></div>
     </div>
+
+    <div class="container3 clearfix">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
 </body>
 </html>
