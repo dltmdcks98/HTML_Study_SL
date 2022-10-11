@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            margin: 50px;
+
+            /* transistion을 걸때는 원본에 설정  
+            property는 하나하나 개별적으로 transistion을 설정할 수 있다.*/
+            /* transition-property: background, width; */
+            /* 0.5초 */
+            /* transition-duration: 2s, 1s; */
+
+            transition-property: all;
+            transition-duration: 3s;
+            /* 일부러 반응이 늦도록 */
+            /* transition-delay: 2s; */
+            transition-timing-function: linear;
+
+            /*초를 2개 입력하면 2번째 거는 duration  3번째 꺼는 delay */
+            transition:  all 3s 2s linear;
+        }
+        .box:hover{
+            width: 300px;
+            background: skyblue;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
