@@ -1,39 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-     
     <style>
-        .container{
+        .container {
             border: 4px solid #000;
-            height: 400px;
             padding: 20px 0;
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
-
-            /* 교차축을 왔다갔다하는거 */
-            /* stretch를 사용하려면 아이템(자식)의 높이가 auto 여야 함  */
-            align-content:stretch;
+            height: 400px;
+            align-items: center;
         }
-        .item{
+        .item {
             width: 150px;
-            /* height: 100px; */
+            height: 100px;
             border: 4px dashed red;
             border-radius: 10px;
             font-size: 40px;
 
-            /* 글자 중앙에 하는 코드 */
             display: flex;
             justify-content: center;
             align-items: center;
         }
+        .item:nth-child(2){
+            order: 1 ;
+        }
+        .item:nth-child(4){
+            order:-1;
+        }
+        
     </style>
 </head>
 <body>
+    
     <div class="container">
         <div class="item">A</div>
         <div class="item">B</div>
@@ -41,5 +44,7 @@
         <div class="item">D</div>
         <div class="item">E</div>
     </div>
+
+
 </body>
 </html>
