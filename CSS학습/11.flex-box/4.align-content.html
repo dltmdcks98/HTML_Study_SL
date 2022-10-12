@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            border: 4px solid #000;
+            height: 400px;
+            padding: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+
+            /* 교차축을 왔다갔다하는거 */
+            /* stretch를 사용하려면 아이템(자식)의 높이가 auto 여야 함  */
+            align-content:stretch;
+        }
+        .item{
+            width: 150px;
+            /* height: 100px; */
+            border: 4px dashed red;
+            border-radius: 10px;
+            font-size: 40px;
+
+            /* 글자 중앙에 하는 코드 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+        <div class="item">D</div>
+        <div class="item">E</div>
+    </div>
+</body>
+</html>
