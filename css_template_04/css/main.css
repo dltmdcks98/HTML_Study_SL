@@ -552,18 +552,16 @@ footer .inner .list li a:hover {
     text-decoration: underline;
 }
 
-
 /* 반응형 웹 디자인 */
 /* 노트북 해상도 1599px 이하 */
-@media screen and (max-width:1599px) {
-    header .inner-header{
+@media screen and (max-width: 1599px) {
+
+    header .inner-header {
         width: 95%;
     }
-
-    header .inner-header .gnb{
+    header .inner-header .gnb {
         margin-left: 50px;
     }
-
     header .inner-header .gnb li {
         margin-right: 40px;
     }
@@ -575,6 +573,46 @@ footer .inner .list li a:hover {
     footer .inner {
         width: 95%;
     }
+}
+
+
+/* 태블릿 1024px 해상도 (아이패드 프로) */
+@media screen and (max-width: 1024px) {
+    
+    header .inner-header .gnb,
+    header .inner-header .tnb {
+        display: none;
+    }
+    header .inner-header .gnb-mobile {
+        display: block;
+        font-size: 40px;
+        color: #fff;
+        float: right;
+    }
+
+    section.main .main-title {
+        width: 80%;
+    }
+    section.me ul.list > li p {
+        margin-bottom: 10px;
+    }
+    section.me ul.list ul.in li p::before {
+        left: -20px;
+    }
+    section.sns ul li .img-box {
+        height: 175px;
+    }
+    section.sns ul li .bottom {
+        padding-left: 5px;
+    }
+
+    footer .inner .list {
+        display: none;
+    }
+    footer .inner .ft-logo {
+        margin-top: 15px;
+    }
+
 }
 
 /* 태블릿 768px 해상도 (아이패드) */
