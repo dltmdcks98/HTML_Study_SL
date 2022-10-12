@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            height: 400px;
+            border: 4px solid #000;
+            display: flex;
+            
+            flex-flow: wrap;
+            align-items: center;
+        }
+        .item{
+            /* width: 150px; */
+            height: 100px;
+            background: red;
+            border: 4px dashed orange;
+            border-radius: 10px;
+        }
+        .item1{
+            /* item의 width를 포함하여 계산  제대로된 비율대로 하려면 width를 빼거나  flex-basis로 설정해야함*/
+            flex-grow: 1;
+            /* width를 제외한 영역에서 비율을 계산 제대로된 비율을 하려면 flex-basis :0으로 해야함  */
+            flex-basis: auto;
+        }
+        .item2{
+            flex-grow: 2;
+            flex-basis: auto;
+        }
+        .item3{
+            flex-grow: 1;
+            flex-basis: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item item1"></div>
+        <div class="item item2"></div>
+        <div class="item item3"></div>
+    </div>
+</body>
+</html>
