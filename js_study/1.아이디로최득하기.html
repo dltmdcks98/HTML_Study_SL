@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul>
+        <li id="apple">사과</li>
+        <li id="banana">바나나</li>
+        <li id="grape">포도</li>
+        <li id="pineapple">파인애플</li>
+    </ul>
+
+    <script>
+        // $ : 개발자들이 관례상 변수에 $가 붙으면 태그가 있다고 생각 즉 태그가 있는 것에서 잡아오는 변수들에는 주로 붙임
+
+
+        // body tag
+        const $body = document.body;
+        $body.style.background='gray';
+
+        // 아이디가 중복으로 설정되어있을 경우  먼저 선언된  id를 갖는다.
+        const $banana = document.getElementById('banana');
+        console.log($banana.textContent);
+
+        $banana.textContent ='쁘네이너'
+        $banana.style.fontSize = '2em';
+
+    </script>
+</body>
+</html>

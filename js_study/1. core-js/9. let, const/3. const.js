@@ -9,6 +9,7 @@ const PI = 3.14159265; //원주율
 console.log(`sale_rate : ${SALE_RATE}`);
 
 // const 와 객체 (배열, 객체, 함수)
+// JS 에서는 객체는 불변해야하므로 let대신 const로 사용해야함
 const person = {
     name: '김철수',
     age: 30
