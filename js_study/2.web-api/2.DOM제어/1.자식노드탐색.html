@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li class="apple">사과</li>
+        <li class="banana">바나나</li>
+        <li class="grape">포도</li>
+    </ul>
+
+    <div class="ttt">
+        
+    </div>
+
+    <script>
+
+        // const $fruits = document.getElementById('fruits');
+        const $fruits = document.querySelector('#fruits');
+
+        // childNodes = 공백까지 가져옴  
+        // const $liList = $fruits.childNodes;
+        // 요소들만 가져옴
+        const $liList = $fruits.children;
+        console.log($liList);
+
+        // 첫번째 자식노드 취득 
+        // const $first = $fruits.children[0];
+        const $first = $fruits.firstElementChild
+        // 마지막 자식노드 취득
+        // const $first = $fruits.children[$fruits.children.length - 1];
+        const $last = $fruits.lastElementChild
+
+        console.log($first);
+        console.log($last);
+
+
+        const $ttt = document.querySelector('.ttt');
+        // 공백도 node로 본다.
+        // console.log($ttt.hasChildNodes());
+        console.log(!!$ttt.children.length);
+        
+
+    </script>
+</body>
+</html>
