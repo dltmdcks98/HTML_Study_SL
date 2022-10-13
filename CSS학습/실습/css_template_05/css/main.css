@@ -236,7 +236,7 @@ section.contents .project ul li a::before {
     content: '';
     width: 0;
     height: 100%;
-    background: rgba(27, 27, 27, .9);
+    background: rgba(255, 255, 255, 0.9);
     position: absolute;
     transition: 0.6s;
 }

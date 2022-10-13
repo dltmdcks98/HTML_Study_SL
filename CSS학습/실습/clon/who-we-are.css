@@ -9,32 +9,50 @@ body {
     font-size: 14px;
     font-family: 'Noto Sans KR', sans-serif;
 }
-
+a{
+    text-decoration: none !important;
+    color: #e7e6e3;
+}
 .en {
     font-family: 'Exo 2', sans-serif;
 }
 br.mo {
     display: none;
 }
+button{
+    font-family: RixSGo, monospace;
+    margin-top: 40px;
+    background-color: #d1363a;
+    font-size: 14px;
+    line-height: 22px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    min-width: 180px;
+    padding: 10px 30px;
+    border-radius: 32px;
+    text-align: center;
+    color: #e7e6e3 !important; 
+    letter-spacing: .025em;
+    font-weight: 400;
+}
 
 .way{
     
-    padding-left: 40px;
-    padding-right: 40px;
     color:#2b2a29;
-    margin-right: auto;
-    margin-left: auto;
-    width: 873.33px;
+   margin: 10px auto 50px;
+   max-width: 953.333px;
+    
 }
 .way h1{
     text-align: center;
     font-size: 4rem;
     line-height: 1.156;
-    font-weight: bold;
+    font-weight: 800;
     margin-top: 40px;
 
 }
 .way p{
+    text-align: center;
     display: block;
     color:#2b2a29;
     font-weight: 400;
@@ -44,37 +62,54 @@ br.mo {
 }
 
 .middle{
-    background: #e7e6e3;
+    background: url('https://www.riotgames.com/assets/img/structure/6d79447d110ef217a5a784efe55ba29b/texture-light@2x.jpg') no-repeat center/cover fixed;
+    z-index: auto;
+
 }
 .middle>h2{
     font-size: 4rem;
     line-height: 1.156;
     text-align: center;
     font-weight: 800;
+    position: relative;
+}
+.middle>h2::before{
+    content: ' ';
+    width: 440px;
+    height: 335px;
+    
+    background: url('https://www.riotgames.com/assets/img/content/ff3b2a8ca8bf986b1a1ac7437232e9dc/sketch-ahri.jpg') no-repeat center/cover;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    z-index: auto;
+
 }
 
 .value {
-    border: 1px solid #000;
+    /* border: 1px solid #e7e6e3; */
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+    
     margin-top: 40px;
-
-  
+    background: url('https://www.riotgames.com/darkroom/1600/4569f3a7237917807fecf57cb1080abd:edd4312be401375eb60a75b6f78fe527/riot-lax-glhf.png') no-repeat center/cover fixed;
     align-content:stretch;
-    height: 879px;
+    height: 800px;
     justify-content: center;
+    z-index: 10;
+    position: absolute;
+    width: 100%;
+    
 }
-.item{
-    border: 1px solid tomato;
+.middle .value .item{
+    border: 0.1px solid #e7e6e3;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    
     align-items: center;
-    flex-grow: 1;
-    flex-basis: 0;
+    flex: 1;
     font-size: 2em;
     font-weight: bold;
+    z-index: 4;
 }
 .img1,.img2{
     width: 70%;
@@ -135,6 +170,7 @@ br.mo {
 }
 
 .office-randomiser{
+    padding: 50px;
    background: url('https://www.riotgames.com/assets/img/structure/7d776943173a38525a926c9d1cafde3c/texture-dark@2x.jpg');
    color: #e7e6e3;
 }
@@ -154,4 +190,91 @@ br.mo {
     padding-left: 20px;
     width: 70%;
 }
+.text-with-cta button{
+    display: block;
+    box-sizing: border-box;
+    margin: 40px auto;
+}
 
+.office-randomiser .content-center ul{
+ /* border: 1px solid #000; */
+ padding: 20px;
+ width: 100%;
+ position: relative;
+}
+
+
+.office-randomiser .content-center ul li{
+    width: 65%;
+    margin: auto;
+    display: block;
+    border-top: 3px solid #242323;
+}
+.office-randomiser .content-center ul li:last-child{
+    border-bottom: 3px solid #242323;
+}
+.office-randomiser .content-center ul li:last-child:before{
+    content: ' ';
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, .5);;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -30px;
+
+}
+.office-randomiser .content-center ul a{
+    box-sizing: border-box;
+    
+    display: flex;
+    align-items: center;
+}
+.office-randomiser .content-center ul a .img-box{
+    overflow: hidden;
+    width: 100%;
+    flex:1;
+    display: flex;
+
+}
+.office-randomiser .content-center ul a .img-box img{
+    box-sizing: border-box;
+    padding: 15px;
+    width: 70%;
+}
+.office-randomiser .content-center ul a .location{
+    flex:1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+
+    font-size: 2.5em;
+    
+}
+.office-randomiser .content-center ul li .location .city{
+    margin-bottom: 20px;
+}
+.office-randomiser .content-center ul li .location .country{
+    color: rgba(255, 255, 255, .5);
+}
+
+.office-randomiser .content-center ul a .positions{
+    flex:1;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.workwithriot{
+    width: 65%;
+    margin: auto;
+    text-align: center;
+}
+.workwithriot h2{
+    font-size: 4rem;
+    line-height: 1.156;
+    font-weight: 800;
+    color: #2b2a29;
+}
