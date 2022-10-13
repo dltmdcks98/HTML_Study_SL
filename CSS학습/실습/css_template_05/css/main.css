@@ -277,3 +277,86 @@ section.contents .project ul li a:hover .name{
         bottom: 10px;
     }
 }
+
+/* >.partner */
+section.contents .partner{
+    width: 65%;
+    margin: 170px auto 100px;
+}
+section.contents .partner h3{
+    font-size: 17px;
+    margin-bottom: 80px;
+}
+section.contents .partner ul{
+    /* background: red; */
+
+    display: flex;
+    /* 2행으로 만들기 위함 */
+    flex-wrap: wrap;
+}
+section.contents .partner ul li{
+    width: 25%;
+    /* border: 4px solid #fff; */
+    /* box-sizing: border-box; */
+    margin-bottom: 80px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section.contents .partner ul li img{
+    opacity: 0.3;
+    transition: 0.3s;
+}
+section.contents .partner ul li img:hover{
+    opacity: 1;
+}
+
+/* contact style */
+section.contents .contact {
+    width: 90%;
+    background: url('../img/contact.jpg') no-repeat center/cover fixed;
+    padding: 220px 0;
+}
+section.contents .contact .inner {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 17px;
+    line-height: 1.4;
+}
+section.contents .contact .inner .tel {
+    font-size: 55px;
+    font-weight: 700;
+    margin: 50px 0;
+}
+
+/* footer */
+footer {
+    background: #1b1b1b;
+    color: #999;
+    padding: 0 80px 80px;
+}
+footer ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+footer ul li:nth-child(2) {
+    color: #eee;
+    font-size: 16px;
+    line-height: 2;
+}
+footer ul li:nth-child(2) span {
+    font-weight: 700;
+    margin-right: 10px;
+    color: #999;
+}
+
+footer .go-top {
+    color: #fff;
+    font-size: 50px;
+    position: fixed;
+    right: 50px;
+    bottom: 60px;
+}
