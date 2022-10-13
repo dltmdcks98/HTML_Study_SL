@@ -57,6 +57,7 @@
         //테이블은 자동으로 table태그와 tr태그 중간에 tbody가 삽입되므로
         //요소탐색시 주의
         const $table = document.querySelector('#board');
+        // table > tbody> tr(last) > td first
         const $target = $table.firstElementChild.lastElementChild.firstElementChild;
 
         $target.style.color = 'red';
