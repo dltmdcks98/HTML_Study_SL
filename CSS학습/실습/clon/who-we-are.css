@@ -10,7 +10,7 @@ body {
     font-family: 'Noto Sans KR', sans-serif;
 }
 a{
-    text-decoration: none !important;
+    text-decoration: none;
     color: #e7e6e3;
 }
 .en {
@@ -19,23 +19,81 @@ a{
 br.mo {
     display: none;
 }
-button{
+.button{
     font-family: RixSGo, monospace;
     margin-top: 40px;
     background-color: #d1363a;
     font-size: 14px;
     line-height: 22px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    min-width: 180px;
     padding: 10px 30px;
+    border: 0;
     border-radius: 32px;
     text-align: center;
-    color: #e7e6e3 !important; 
+    color: #e7e6e3; 
     letter-spacing: .025em;
-    font-weight: 400;
-}
+    font-weight: 600;
+    
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
 
+    
+}
+.button::after{
+    content: ' ';
+    display: block;
+    width: 100%;
+    height: 0%;
+    background: rgba(43,42,41,0.5);
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transform: rotate(-5deg);
+    transition: 0.6s;
+}
+.button:hover {
+    text-decoration: underline;
+
+}
+.button:hover::after{
+    height: 150%;
+    
+}
+.video-div{
+    position: relative;
+}
+.video-div video{
+    width: 100%;
+}
+.video-div .video-content{
+    float: left;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 30%;
+    
+}
+.video-div .video-content>.video-text{
+    display: block;
+    background: #d1363a;
+    color: #e7e6e3;
+    border-radius: 0%;
+    height: fit-content;
+    width: fit-content;
+    padding: 10px 30px;
+}
+.video-div .video-content>h1{
+    letter-spacing: .1em;
+    margin-top: 40px;
+    color: #e7e6e3;
+    font-size: 5rem;
+    line-height: 1.1;
+    font-weight: 800;
+    text-align: center;
+}
 .way{
     
     color:#2b2a29;
@@ -75,7 +133,7 @@ button{
     
 }
 
-.middle h2::before{
+.middle .middle-title>h2::before{
     content: ' ';
     width: 440px;
     height: 335px;
@@ -114,49 +172,41 @@ button{
     z-index: 4;
 }
 
-.img1,.img2{
-    width: 70%;
-    margin: 40px auto ;
-    position: relative;
+
+/* img-box */
+.img-box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 40px auto;
 }
-.img1 img{
+
+.img{
+    width: 80%;
+    float: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+}
+.img:last-child{
+    flex-direction: row-reverse;
+}
+.img img{
+    flex: 1;
     width: 555px;
-    float: left;
-    padding-right: 40px;
+    padding: 40px;
 }
-.img2 img{
-    width: 555px;
-    float: right;
-    padding-left: 40px;
+.img .imgContent{
+    flex: 1;
 }
 
-.img1 .imgContent{
-    float: left;
-    max-width: 466.667px;
-    
-    padding-left: 40px;
-    width: 50%;
-
-    position: absolute;
-    left: 60%;
-    top: 50%;
-    
-}
-.img2 .imgContent{
-    float: right;
-    max-width: 466.667px;
-    
-    padding-right: 40px;
-    width: 50%;
-
-    position: absolute;
-    left: 1%;
-    top: 20%;
-}
-
-.imgContent *{
-    display: block;
+.imgContent{
+    margin-left: 100px;
     color: #2b2a29;
+    
 }
 .imgContent h3{
     font-size: 2.75rem;
@@ -170,7 +220,16 @@ button{
     line-height: 1.667;
     font-weight: 400;
     margin-bottom: 30px;
+    width: 67%;
 }
+.imgContent a{
+    color: #e7e6e3;
+    width: 120px;
+    height: 22px;
+    margin: 10px auto;
+}
+
+
 
 .office-randomiser{
     padding: 50px;
@@ -178,12 +237,26 @@ button{
    color: #e7e6e3;
 }
 
+
 .headriot h2{
     font-size: 4rem;
     line-height: 1.156;
     font-weight: 800;
     
     text-align: center;
+}
+.text-with-cta{
+    position: relative;
+}
+
+.text-with-cta::before{
+    content: ' ';
+    width: 320px;
+    height: 320px;
+    position: absolute;
+    right: 1px;
+    top: 200px;
+    background: url('https://www.riotgames.com/assets/img/content/ca6eef2806136dec721267fea0663d4e/sketch-office-randomiser.jpg') no-repeat center/cover;
 }
 .text-with-cta p{
     font-size: 1.375rem;
@@ -193,10 +266,23 @@ button{
     padding-left: 20px;
     width: 70%;
 }
-.text-with-cta button{
+.text-with-cta a{
     display: block;
-    box-sizing: border-box;
+    
     margin: 40px auto;
+    width: 165px;
+    height: 22px;
+    z-index: 10;
+
+}
+.text-with-cta a:hover{
+    
+    transition: 0.5s;
+}
+.text-with-cta a::after{
+    z-index: 1;
+    
+    background: rgba(231,230,227,0.7); 
 }
 
 .office-randomiser .content-center ul{
@@ -228,7 +314,6 @@ button{
 }
 .office-randomiser .content-center ul a{
     box-sizing: border-box;
-    
     display: flex;
     align-items: center;
 }
@@ -272,7 +357,7 @@ button{
 
 .workwithriot{
     width: 65%;
-    margin: auto;
+    margin: 50px auto;
     text-align: center;
 }
 .workwithriot h2{
@@ -280,4 +365,7 @@ button{
     line-height: 1.156;
     font-weight: 800;
     color: #2b2a29;
+}
+.workwithriot a{
+    margin-bottom: ;
 }
