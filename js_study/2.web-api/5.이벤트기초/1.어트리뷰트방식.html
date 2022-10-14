@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: orange;
+            margin: 20px;
+
+        }
+        .box.red{
+            background: red;
+        }
+        .box.green{
+            background: yellowgreen;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" onclick="callMessage()"></div>
+    <div class="box red"></div>
+    <div class="box green"></div>
+
+    <script>
+
+        //이벤트 핸들러 : 이벤트가 발생했을 대 브라우저가 호출할 함수
+        function callMessage(){
+            alert('박스 클릭');
+        }
+        
+        // 브라우저 알아서 호출 : 콜백
+
+    </script>
+</body>
+</html>
