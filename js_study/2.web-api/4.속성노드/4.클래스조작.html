@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: lightgray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .red{
+            color: red;
+            border: 2px dashed tomato;
+
+        }
+        .blue{
+            color: blue;
+            border: 2px dashed aqua;
+        }
+        .circle{
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box red">안녕</div>
+
+    <script>
+        const $box = document.querySelector('.box');
+
+        // $box.setAttribute('class','box blue');
+
+        $box.classList.add('circle');
+        // 여러개 추가도 가능
+        // $box.classList.add('aaa','bbb','circle');
+
+        $box.classList.remove('circle');
+        // 여러개 제거도 가능
+        // $box.classList.remove('aaa','bbb');
+
+        // 교체
+        $box.classList.replace('red','blue');
+
+        //존재 유무 확인
+        console.log($box.classList.contains('red'));
+
+        $box.onclick = e =>{
+            // if(!$box.classList.contains('circle')){
+            //     $box.classList.add('circle');
+            // }else{
+            //     $box.classList.remove('circle');
+            // }
+            //위의 코드와 같음
+            $box.classList.toggle('circle');
+        };
+    </script>
+</body>
+</html>
