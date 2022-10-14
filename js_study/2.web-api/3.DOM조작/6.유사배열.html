@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .blue {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul id="fruits">
+        <li class="red">사과</li>
+        <li class="red">딸기</li>
+        <li class="red">토마토</li>
+        <li class="red">자몽</li>
+    </ul>
+
+    <script>
+        //배열
+        const arr = ['멍멍이', '야옹이', '짹짹이'];
+        //객체
+        const obj = {
+            dog: '멍멍이',
+            cat: '야옹이',
+            bird: '새'
+        };
+        //유사배열
+        const array = {
+            0: '멍멍이',
+            1: '야옹이',
+            2: '새',
+            length: 3
+        };
+
+        console.log(obj.dog);
+        console.log(obj['dog']);
+
+        console.log(array[1]);
+        console.log(array.length);
+
+        console.log("--------------------------");
+
+        console.log(arr);
+        console.log(array);
+
+
+        const $fruits = document.getElementById('fruits');
+        const $liList = document.getElementsByClassName('red');
+
+        //유사배열을 실제 배열로 변환 
+        const realArray = [...$liList];
+
+        console.log($liList);
+        /*
+                    HTMLCollection 유사배열은 실시간으로 변동하는 Live Dom입니다.
+                    이런 유사배열은 반복문이 실행되는 와중에도 실시간으로
+                    배열의 내용이 변동되므로 실제배열로 바꾼 후 반복문 처리를 
+                    해야 안전합니다.
+        */
+        // 유사배열으로 조작하려고 하면 첫번째에서 바뀌고, 실시간으로 바뀐 배열이 나가게 된다. 
+        //i가 1일때 한개가 빠진 유사배열이 조작되는데 그 때 유사배열은 [딸기, 토마토,자몽] 형태이다
+        for (let i = 0; i < $liList.length; i++) {
+            $liList[i].className = 'blue';
+        }
+    </script>
+</body>
+
+</html>
