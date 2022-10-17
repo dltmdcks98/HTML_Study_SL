@@ -39,7 +39,7 @@ function clearIcons($target, isUp) {
 
 
     let $delTarget = $target;
-    while($delTarget !== null){
+    while($delTarget){
         let $next = isUp ? $delTarget.previousElementSibling : $delTarget.nextElementSibling;
         $numbers.removeChild($delTarget);
         $delTarget = $next;
@@ -66,6 +66,19 @@ function processUpDownCase($target , isUp) {
     // 아이콘 삭제 처리 
     clearIcons($target,isUp);
 }
+
+// 정답시 화면 렌더링 처리
+function processCorrect($target) {
+    // 1.축하박스 등장 처리 
+    document.getElementById('finish').classList.add('show');
+
+    // 정답아이콘에 id = move 부여
+    $target.setAttribute('id','move');
+
+    // 게임 종료시 click 이벤트 지움 
+    document.getElementById('numbers').onclick=null;
+}
+
 // 정답을 검증하는 함수 정의 
 function checkAnswer($target) {
 
@@ -74,7 +87,7 @@ function checkAnswer($target) {
 
 
     if(gameDatas.secret===gameDatas.answer){ //정답인 경우
-        
+        processCorrect($target);
     }else if (secret >answer) { //up인경우
         processUpDownCase($target,true);
     }else { //down인 경우
