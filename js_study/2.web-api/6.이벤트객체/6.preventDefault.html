@@ -13,7 +13,7 @@
     <form action="/login">
 
         <input type="text" name="ttt">
-        <button type="submit" id="check">확인</button>
+        <button type="submit" id="check"></button>
 
     </form>
 
@@ -23,20 +23,8 @@
             if(!confirm('이동?')){
                 e.preventDefault();
             }
+
         }
-        const $subBtn = document.getElementById('check');
-        $subBtn.onclick = e => {
-            e.preventDefault();
-
-            const $input = $subBtn.previousElementSibling;
-            if ($input.value === '') {
-                alert('필수입력사항입니다!');
-                return;
-            }
-
-            //서버로 데이터 전송
-            $subBtn.parentNode.submit();
-        };
     </script>
     
 </body>
