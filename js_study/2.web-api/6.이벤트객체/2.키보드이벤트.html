@@ -7,6 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <input type="text" id="text-input">
+    <p class="msg"></p>
+
+    <script>
+        const $input = document.querySelector('#text-input');
+        const $msg = document.querySelector('.msg');
+
+        $input.onkeyup = function (e) {
+            console.log(e);
+        }
+    </script>
 </body>
 </html>
